@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ClosureOSS.JwtBearer</AssemblyName>
+        <RootNamespace>ClosureOSS.JwtBearer</RootNamespace>
+        <PackageId>ClosureOSS.JwtBearer.Providers</PackageId>
+        <Description>Library to support JwtBearer authentication with different providers</Description>
+        <Product>JwtBearer Provider Support</Product>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://git.slgm.li/closure.ch/JwtBearer.Providers</RepositoryUrl>
+        <PackageTags>jwt oidc authentication</PackageTags>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <PropertyGroup>
+        <DeterministicSourcePaths>true</DeterministicSourcePaths>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="./LICENSE" Pack="true" PackagePath="" />
+        <None Include="./README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Meziantou.Analyzer" Version="2.0.286" Condition="'$(Configuration)' == 'Debug'">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.2" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.15.0" />
+    </ItemGroup>
+</Project>

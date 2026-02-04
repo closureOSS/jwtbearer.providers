@@ -1,0 +1,46 @@
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+name: 🏭 Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.x
+          cache: true
+
+      - uses: dotnet/nbgv@v0.4.2
+        id: nbgv
+        with:
+          setAllVars: true
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      - name: Test
+        run: dotnet test --no-build -c Release --verbosity normal
+
+      - name: Upload Nuget package as Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: ClosureOSS.JwtBearer.Providers.${{ steps.nbgv.outputs.NuGetPackageVersion }}
+          path: ./artifacts/package/release/*nupkg
+          retention-days: 1

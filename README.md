@@ -1,1 +1,3 @@
-# jwtbearer.providers
+# Jwtbearer Providers
+
+See Calendare project
