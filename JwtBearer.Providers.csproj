@@ -1,24 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <Description>Library to support JwtBearer authentication with different providers</Description>
+        <Product>JwtBearer Provider Support</Product>
+        <TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
         <Nullable>enable</Nullable>
         <AssemblyName>ClosureOSS.JwtBearer</AssemblyName>
         <RootNamespace>ClosureOSS.JwtBearer</RootNamespace>
+    </PropertyGroup>
+    <PropertyGroup>
         <PackageId>ClosureOSS.JwtBearer.Providers</PackageId>
-        <Description>Library to support JwtBearer authentication with different providers</Description>
-        <Product>JwtBearer Provider Support</Product>
         <IsPackable>true</IsPackable>
+        <IsAotCompatible>true</IsAotCompatible>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryUrl>https://git.slgm.li/closure.ch/JwtBearer.Providers</RepositoryUrl>
         <PackageTags>jwt oidc authentication</PackageTags>
-        <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageProjectUrl>https://github.com/closureOSS/jwtbearer.providers</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/closureOSS/jwtbearer.providers</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
-    <PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'!='Debug'">
         <DeterministicSourcePaths>true</DeterministicSourcePaths>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
