@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Description>Library to support JwtBearer authentication with different providers</Description>
         <Product>JwtBearer Provider Support</Product>
-        <TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net10.0</TargetFrameworks>
         <Nullable>enable</Nullable>
         <AssemblyName>ClosureOSS.JwtBearer</AssemblyName>
         <RootNamespace>ClosureOSS.JwtBearer</RootNamespace>
@@ -11,7 +11,7 @@
     <PropertyGroup>
         <PackageId>ClosureOSS.JwtBearer.Providers</PackageId>
         <IsPackable>true</IsPackable>
-        <IsAotCompatible>true</IsAotCompatible>
+        <!-- <IsAotCompatible>true</IsAotCompatible> -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -33,11 +33,11 @@
         <None Include="./README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Meziantou.Analyzer" Version="3.0.22" Condition="'$(Configuration)' == 'Debug'">
+        <PackageReference Include="Meziantou.Analyzer" Version="3.0.61" Condition="'$(Configuration)' == 'Debug'">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.4" />
-        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.16.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.7" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.18.0" />
     </ItemGroup>
 </Project>
